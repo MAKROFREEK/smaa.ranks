@@ -1,0 +1,285 @@
+menu_title: '&8Kingdom Fairytale'
+
+open_command:
+- 'franks'
+
+size: 27
+
+items:
+  
+  "Larva":
+    material: 'GOLD_INGOT'
+    slot: 0 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Larva'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+
+  "Grub":
+    material: 'GOLD_INGOT'
+    slot: 1 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Grub'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+
+  "Beetle":
+    material: 'GOLD_INGOT'
+    slot: 2 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Beetle'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+
+  "Caterpillar":
+    material: 'GOLD_INGOT'
+    slot: 3 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Caterpillar'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+
+  "Firefly":
+    material: 'GOLD_INGOT'
+    slot: 4 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Firefly'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+
+  "Ant":
+    material: 'GOLD_INGOT'
+    slot: 5 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Ant'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+
+  "Ladybug":
+    material: 'GOLD_INGOT'
+    slot: 6 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Ladybug'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+
+  "Cricket":
+    material: 'GOLD_INGOT'
+    slot: 7 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Cricket'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+
+  "Dragonfly":
+    material: 'GOLD_INGOT'
+    slot: 8 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Dragonfly'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+
+  "Moth":
+    material: 'GOLD_INGOT'
+    slot: 9 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Moth'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+
+  "Grasshopper":
+    material: 'GOLD_INGOT'
+    slot: 10 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Grasshopper'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+  "Bee":
+    material: 'GOLD_INGOT'
+    slot: 11 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Bee'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+  "Butterfly":
+    material: 'GOLD_INGOT'
+    slot: 12 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Butterfly'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+  "Spider":
+    material: 'GOLD_INGOT'
+    slot: 13 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Spider'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+  "Centipede":
+    material: 'GOLD_INGOT'
+    slot: 14 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Centipede'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+  "Scorpion":
+    material: 'GOLD_INGOT'
+    slot: 15 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Scorpion'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+  "PrayingMantis":
+    material: 'GOLD_INGOT'
+    slot: 16 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Praying Mantis'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+  "Tarantula":
+    material: 'GOLD_INGOT'
+    slot: 17 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Tarantula'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+  "Hornet":
+    material: 'GOLD_INGOT'
+    slot: 18 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Hornet'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+  "AssassinBug":
+    material: 'GOLD_INGOT'
+    slot: 19 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Assassin Bug'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+  "StickInsect":
+    material: 'GOLD_INGOT'
+    slot: 20 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Stick Insect'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+  "Katydid":
+    material: 'GOLD_INGOT'
+    slot: 21 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Katydid'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+  "Flea":
+    material: 'GOLD_INGOT'
+    slot: 22 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Flea'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+  "StinkBug":
+    material: 'GOLD_INGOT'
+    slot: 23 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Stink Bug'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+  "QueenBee":
+    material: 'GOLD_INGOT'
+    slot: 24 
+    lore:
+    - '&8Information about this rank'
+    - ' '
+    - '&8Placeholder information about votes'
+    display_name: 'Queen Bee'
+    click_commands:
+    - '[message] this feature isnt fully functional please be patient.'
+
+  "coming_soon":
+    material: head-%player_name%
+    slot: 25 
+    display_name: "&eComing soon"
+    lore:
+    - 'More ranks on the way'
+    left_click_commands:
+    - ''
+
+  "Close":
+    material: BARRIER
+    slot: 26 
+    display_name: "&8[&fClose Menu&8]"
+    left_click_commands:
+    - '[close]'

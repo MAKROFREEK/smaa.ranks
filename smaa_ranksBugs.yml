@@ -1,0 +1,557 @@
+menu_title: '&8Bug Ranks'
+open_command:
+- 'branks'
+open_commands:
+- '[sound] ITEM_BOOK_PAGE_TURN 1'
+size: 27
+register_command: false
+items:
+  "Larva":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 1
+    slot: 0
+    hide_attributes: true
+    lore:
+    - '&c&lRequirements: '
+    - ' '
+    - '&bMoney Required: %cmi_user_balance_formatted% / $1000.00'
+    - '&bHours Required: %cmi_user_playtime_hoursf% / 1'
+    - '&bVotes Required: %votingplugin_total_alltime% / 8'
+    - '&bExp Required:   %cmi_user_exp% / 2'
+    - ' '
+    display_name: '&a&l[Larva]'
+    click_requirement:
+      requirements:
+        voteCount:
+          type: 'integer equals'
+          input: '%votingplugin_total_alltime%'
+          output: '8'
+          deny_commands:
+          - '[close]'
+          - '[message] &7&lNot enough votes.'
+          - '[sound] ENTITY_VILLAGER_NO'
+        rank:
+          type: 'has permission'
+          permission:
+          # - 'smaa.rank.Bugs'
+          - 'smaa.rank.Fairytale_Kingdoms'
+          - 'smaa.rank.Futuristic'
+          - 'smaa.rank.Galactic_Empire'
+          - 'smaa.rank.Main'
+          - 'smaa.rank.Pirate'
+          - 'smaa.rank.Space'
+          - 'smaa.rank.Time_Travel'
+          - 'smaa.rank.Wild_West'
+          - 'smaa.rank.Wizardry_Magic'
+          deny_commands:
+          - '[close]'
+          - '[message] &c&lYou are already in another track!'
+          - '[sound] ENTITY_VILLAGER_NO'
+        clickAgain:
+          type: 'has permission'
+          permission: 'smaa.rank.Larva'
+          deny_commands:
+          - '[close]'
+          - '[message] &c&lYou are already in another track!'
+          - '[sound] ENTITY_VILLAGER_NO'
+        hoursPlayed:
+          type: 'integer equals'
+          input: '%cmi_user_playtime_hoursf%'
+          output: '1'
+          deny_commands:
+          - '[close]'
+          - '[message] &7&l Not enough play time.'
+          - '[sound] ENTITY_VILLAGER_NO'
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+          - '[close]'
+          - '[message] &7&lNot enough experience.'
+          - '[sound] ENTITY_VILLAGER_NO'
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+          - '[close]'
+          - '[message] &7&lNot enough money.'
+          - '[sound] ENTITY_VILLAGER_NO'
+    click_commands:
+    - '[takepermission] smaa.rank.Bugs'
+    - '[givepermission] smaa.rank.Larva'
+    - '[message] &lCongratulations!'
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Larva]'
+    - '[console] money take [playerName] 1000'
+    - '[console] exp [playerName] take 2 levels'
+    - '[console] lp user %player% permission set pw.limit.5'
+    - '[console] lp user %player% permission set cmi.command.sethome.5'
+    - '[console] lp user %player% permission set playershopguiplus.limit.5'
+
+  "Grub":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 2
+    slot: 1
+    hide_attributes: true
+    lore:
+    - ''
+    - '&c&lRewards:'
+    - ''
+    - '&eRank Larva'
+    - '&e5 Leads'
+    - '&e1 Shulker box'
+    - '&e5 Ender Pearls'
+    - '&e1 Mob Spawn Egg (random)'
+    - '&e5 /home(s)'
+    - '&e5 /pwarp(s)'
+    - '&e5 /shop (slots)'
+    - '&e50 Points'
+    - ''
+    - '&c&lRequirements: '
+    - ''
+    - '&bMoney Required: %cmi_user_balance_formatted% / $1000.00'
+    - '&bHours Required: %cmi_user_playtime_hoursf% / 1'
+    - '&bVotes Required: %votingplugin_total_alltime% / 8'
+    - '&bExperience Required: %cmi_user_exp% / 2'
+    - ' '
+    display_name: '&a&l[Grub]'
+    click_requirement:
+      requirements:
+        voteCount:
+          type: 'integer equals'
+          input: '%votingplugin_total_alltime%'
+          output: '8'
+        deny_commands:
+        - '[message] Not enough Votes.'
+        rank:
+          type: '!has permission'
+          permission: 'smaa.rank.grub'
+          deny_commands:
+          - '[message] &c&lYou have already achieved this Rank.'
+        hoursPlayed:
+          type: 'integer equals'
+          input: '%cmi_user_playtime_hoursf%'
+          output: '1'
+          deny_commands:
+          - '[message] Not enough Hours Played.'
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+          - '[message] Not enough Experience.'
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+          - '[message] Not enough Money.'
+    click_commands:
+    - '[message] &lCongratulations!'
+    - '[meta] set %player% rank Larva'
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Larva]'
+    - '[console] cmi money take [playerName] 5' # 1000
+    - '[console] cmi exp take 2'
+    - '[givepermission] smaa.rank.grub'
+
+  "Beetle":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 3
+    slot: 2
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $3000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 3'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 24'
+    - '&eExperience Required: %cmi_user_exp% / 6'
+    - ' '
+    display_name: '&a&l[Beetle]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Beetle]'
+
+  "Caterpillar":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 4
+    slot: 3
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $4000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 4'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 32'
+    - '&eExperience Required: %cmi_user_exp% / 8'
+    - ' '
+    display_name: '&a&l[Caterpillar]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Caterpillar]'
+
+  "Firefly":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 5
+    slot: 4
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $5000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 5'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 40'
+    - '&eExperience Required: %cmi_user_exp% / 10'
+    - ' '
+    display_name: '&a&l[Firefly]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Firefly]'
+
+  "Ant":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 6
+    slot: 5
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $6000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 6'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 48'
+    - '&eExperience Required: %cmi_user_exp% / 12'
+    - ' '
+    display_name: '&a&l[Ant]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Ant]'
+
+  "Ladybug":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 7
+    slot: 6
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $7000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 7'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 56'
+    - '&eExperience Required: %cmi_user_exp% / 14'
+    - ' '
+    display_name: '&a&l[Ladybug]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Ladybug]'
+
+  "Cricket":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 8
+    slot: 7
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $8000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 8'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 64'
+    - '&eExperience Required: %cmi_user_exp% / 16'
+    - ' '
+    display_name: '&a&l[Cricket]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Cricket]'
+
+  "Dragonfly":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 9
+    slot: 8
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $9000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 9'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 72'
+    - '&eExperience Required: %cmi_user_exp% / 18'
+    - ' '
+    display_name: '&a&l[Dragonfly]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Dragonfly]'
+
+  "Moth":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 10
+    slot: 9
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $10000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 100'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 80'
+    - '&eExperience Required: %cmi_user_exp% / 20'
+    - ' '
+    display_name: '&a&l[Moth]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Moth]'
+
+  "Grasshopper":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 11
+    slot: 10
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $11000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 110'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 88'
+    - '&eExperience Required: %cmi_user_exp% / 22'
+    - ' '
+    display_name: '&a&l[Grasshopper]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Grasshopper]'
+  "Bee":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 12
+    slot: 11
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $12000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 120'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 96'
+    - '&eExperience Required: %cmi_user_exp% / 24'
+    - ' '
+    display_name: '&a&l[Bee]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Bee]'
+  "Butterfly":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 13
+    slot: 12
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $13000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 130'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 104'
+    - '&eExperience Required: %cmi_user_exp% / 26'
+    - ' '
+    display_name: '&a&l[Butterfly]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Butterfly]'
+  "Spider":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 14
+    slot: 13
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $14000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 140'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 112'
+    - '&eExperience Required: %cmi_user_exp% / 28'
+    - ' '
+    display_name: '&a&l[Spider]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Spider]'
+  "Centipede":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 15
+    slot: 14
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $15000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 150'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 120'
+    - '&eExperience Required: %cmi_user_exp% / 30'
+    - ' '
+    display_name: '&a&l[Centipede]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Centipede]'
+  "Scorpion":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 16
+    slot: 15
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $16000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 160'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 128'
+    - '&eExperience Required: %cmi_user_exp% / 32'
+    - ' '
+    display_name: '&a&l[Scorpion]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Scorpion]'
+  "PrayingMantis":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 17
+    slot: 16
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $17000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 170'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 136'
+    - '&eExperience Required: %cmi_user_exp% / 34'
+    - ' '
+    display_name: '&a&l[Praying Mantis]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[PrayingMantis]'
+  "Tarantula":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 18
+    slot: 17
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $18000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 180'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 144'
+    - '&eExperience Required: %cmi_user_exp% / 36'
+    - ' '
+    display_name: '&a&l[Tarantula]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Tarantula]'
+  "Hornet":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 19
+    slot: 18
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $19000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 190'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 152'
+    - '&eExperience Required: %cmi_user_exp% / 38'
+    - ' '
+    display_name: '&a&l[Hornet]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Hornet]'
+  "AssassinBug":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 20
+    slot: 19
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $20000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 200'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 160'
+    - '&eExperience Required: %cmi_user_exp% / 40'
+    - ' '
+    display_name: '&a&l[Assassin Bug]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[AssassinBug]'
+  "StickInsect":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 21
+    slot: 20
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $21000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 210'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 168'
+    - '&eExperience Required: %cmi_user_exp% / 42'
+    - ' '
+    display_name: '&a&l[Stick Insect]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[StickInsect]'
+  "Katydid":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 22
+    slot: 21
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $22000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 220'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 176'
+    - '&eExperience Required: %cmi_user_exp% / 44'
+    - ' '
+    display_name: '&a&l[Katydid]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Katydid]'
+  "Flea":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 23
+    slot: 22
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $23000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 230'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 184'
+    - '&eExperience Required: %cmi_user_exp% / 46'
+    - ' '
+    display_name: '&a&l[Flea]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Flea]'
+  "StinkBug":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 24
+    slot: 23
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $24000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 240'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 192'
+    - '&eExperience Required: %cmi_user_exp% / 48'
+    - ' '
+    display_name: '&a&l[Stink Bug]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[StinkBug]'
+  "QueenBee":
+    update_interval: 1
+    material: 'HONEYCOMB'
+    amount: 25
+    slot: 24
+    hide_attributes: true
+    lore:
+    - ' '
+    - '&eMoney Required: %cmi_user_balance_formated% / $25000'
+    - '&eHours Required: %cmi_user_playtime_hoursf% / 250'
+    - '&eVotes Required: %votingplugin_alltimetotal% / 200'
+    - '&eExperience Required: %cmi_user_exp% / 50'
+    - ' '
+    display_name: '&a&l[Queen Bee]'
+    click_commands:
+    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[QueenBee]'
+    # - '[givepermission]] '
+  # - '[takemoney] $5'
+
+  "Back":
+    update_interval: 1
+    material: OAK_DOOR
+    slot: 25
+    hide_attributes: true
+    display_name: "&eBack"
+    lore:
+    - '&8Return to main menu'
+    left_click_commands:
+    - '[player] rank'
+
+  "Close":
+    update_interval: 1
+    material: BARRIER
+    slot: 26
+    hide_attributes: true
+    lore:
+    - '&8Click to close'
+    display_name: '&cClose'
+    left_click_commands:
+    - '[close]'

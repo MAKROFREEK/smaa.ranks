@@ -1,0 +1,252 @@
+[bugs]
+
+    Larva
+    Grub
+    Beetle
+    Caterpillar
+    Firefly
+    Ant
+    Ladybug
+    Cricket
+    Dragonfly
+    Moth
+    Grasshopper
+    Bee
+    Butterfly
+    Spider
+    Centipede
+    Scorpion
+    Praying Mantis
+    Tarantula
+    Hornet
+    Assassin Bug
+    Stick Insect
+    Katydid
+    Flea
+    Stink Bug
+    Queen Bee/King Bee
+
+
+[fairytale kingdom]
+
+    Peasant
+    Squire
+    Knight
+    Herald
+    Bard
+    Jester
+    Courtier
+    Noble
+    Baron/Baroness
+    Viscount/Viscountess
+    Duke/Duchess
+    Prince/Princess
+    Royal Guard
+    Court Magician
+    Fairy Godmother/Fairy Godfather
+    Enchanter/Enchantress
+    Sorcerer/Sorceress
+    Dragon Tamer
+    Unicorn Rider
+    Pixie Sprite
+    Elf Archer
+    Griffin Guardian
+    Wizard/Witch
+    King/Queen
+    Fairytale Legend
+
+[galactic empire]
+
+    Recruit
+    Stormtrooper
+    Scout Trooper
+    Imperial Officer
+    TIE Fighter Pilot
+    Sith Acolyte
+    Dark Trooper
+    Imperial Agent
+    Death Star Engineer
+    Imperial Guard
+    Sith Lord
+    TIE Interceptor Pilot
+    Moff
+    Star Destroyer Captain
+    Inquisitor
+    Imperial Assassin
+    Grand Admiral
+    Sith Master
+    Emperor's Hand
+    Royal Guard
+    Imperial Commander
+    Shadow Trooper
+    Death Star Commander
+    Sith Apprentice
+    Galactic Emperor
+
+[pirate]
+
+    Landlubber
+    Swab
+    Deckhand
+    Buccaneer
+    Privateer
+    Gunner
+    Corsair
+    Quartermaster
+    Boatswain
+    Navigator
+    Scallywag
+    First Mate
+    Sea Dog
+    Marauder
+    Captain's Mate
+    Shipwright
+    Siren
+    Blackbeard
+    Dread Pirate
+    Admiral
+    Pirate King
+    Plunderer
+    Cutthroat
+    Sea Rover
+    Pirate Legend
+
+[space]
+
+    Stargazer
+    Space Cadet
+    Astronaut Trainee
+    Lunar Explorer
+    Satellite Technician
+    Planetary Scientist
+    Space Engineer
+    Nebula Navigator
+    Cosmic Voyager
+    Starfleet Officer
+    Solar Astronomer
+    Interstellar Pilot
+    Celestial Navigator
+    Space Station Commander
+    Alien Diplomat
+    Galactic Cartographer
+    Intergalactic Ambassador
+    Warp Drive Technician
+    Space Miner
+    Astrobiologist
+    Deep Space Investigator
+    Meteor Hunter
+    Solar System Architect
+    Cosmic Guardian
+    Space Odyssey Master
+
+[time travel]
+
+    Time Novice
+    Chrono Traveler
+    Temporal Apprentice
+    Time Agent
+    Time Hopper
+    Temporal Voyager
+    Time Guardian
+    Era Explorer
+    Time Technician
+    Time Shifter
+    Chrono Scholar
+    Time Pilgrim
+    Temporal Engineer
+    Time Keeper
+    Time Sage
+    Era Tracker
+    Chrono Archaeologist
+    Time Conjurer
+    Temporal Sentinel
+    Time Paradox Resolver
+    Era Keeper
+    Time Manipulator
+    Temporal Guardian
+    Chrono Master
+    Time Lord
+
+[wild west]
+
+    Greenhorn
+    Ranch Hand
+    Gunslinger
+    Outlaw
+    Desperado
+    Bounty Hunter
+    Deputy
+    Sheriff
+    Marshal
+    Saloon Owner
+    Trail Guide
+    Gambler
+    Bandit
+    Wrangler
+    Blacksmith
+    Sharpshooter
+    Homesteader
+    Prospector
+    Cowpoke
+    Showdown Ace
+    Cattle Baron
+    Frontier Scout
+    Stagecoach Driver
+    Lawman
+    Wild West Legend
+
+[wizardy & magic]
+
+    Apprentice
+    Spellcaster
+    Enchanter
+    Sorcerer's Acolyte
+    Conjurer
+    Magician
+    Wizard's Apprentice
+    Arcane Scholar
+    Potion Master
+    Mage
+    Sorcerer
+    Mystic Seer
+    Elemental Conjurer
+    Necromancer
+    Enchantress
+    Grand Warlock
+    Archmage
+    Sorceress Supreme
+    High Alchemist
+    Celestial Wizard
+    Spellweaver
+    Master Enchanter
+    Illusionist
+    Pyromancer
+    Wizard King
+
+[naruto]
+
+    Academy Student
+    Genin
+    Chunin
+    Special Jonin
+    Jounin
+    Anbu Black Ops
+    Medical Ninja
+    Sage Mode Adept
+    Sharingan User
+    Byakugan Master
+    Akatsuki Member
+    Sannin
+    Kage Assistant
+    ANBU Captain
+    Puppet Master
+    Sage of the Six Paths
+    Mangekyou Sharingan User
+    Edo Tensei User
+    Tailed Beast Jinchuriki
+    Hokage
+    Raikage
+    Kazekage
+    Mizukage
+    Tsuchikage
+    Otsutsuki Descendant

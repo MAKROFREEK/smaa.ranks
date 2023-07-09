@@ -1,0 +1,66 @@
+menu_title: '&8Where would you like to go?'
+
+open_command:
+- 'rtpgui'
+
+size: 36
+
+items:
+
+  "overworld":
+    material: 'GRASS_BLOCK'
+    hide_attributes: true
+    slot: 10
+    lore:
+    - '&8This is where you will collect &aresources&f,'
+    - '&8make &afriends&8, build your &astructures&8,'
+    - '&8and try to &asurvive&8 the &cblood moon&8.'
+    display_name: "&aSurvival"
+    click_commands:
+    - '[player] betterrtp world world'
+
+  "the_end":
+    material: 'END_STONE'
+    hide_attributes: true
+    slot: 13
+    lore:
+    - '&8This is where you face the &5Ender Dragon&8,'
+    - '&8collect ender pearls, get trolled by &5Shulkers'
+    - '&8 and finally get your &6elytra&8.'
+    display_name: "&5The End"
+    click_commands:
+    - '[player] betterrtp world world_the_end'
+  
+  "the_nether":
+    material: 'NETHERRACK'
+    hide_attributes: true
+    slot: 16
+    lore:
+    - '&8This is where you will &cburn&8 alive, collect &eblaze rods&8,'
+    - '&8gather &cnetherwart&8 for &cpotions&8, &ctrade&8 with the hoglins.'
+    - '&8a true gateway to &cHell.'
+    display_name: "&cThe Nether"
+    click_commands:
+    - '[player] betterrtp world world_nether'
+
+  'Fill':
+    material: GRAY_STAINED_GLASS_PANE
+    slots: [0-36]
+    priority: 10
+    display_name: ' '
+
+  'coming_soon':
+    material: head-%player_name%
+    slot: 27
+    display_name: "&eComing soon"
+    lore:
+    - 'Biome Selection per world type'
+    left_click_commands:
+    - ''
+
+  'Close':
+    material: BARRIER
+    slot: 35
+    display_name: "&8[&fClose Menu&8]"
+    left_click_commands:
+    - '[close]'
