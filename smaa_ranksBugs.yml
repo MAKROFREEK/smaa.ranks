@@ -1,557 +1,2022 @@
-menu_title: '&8Bug Ranks'
+menu_title: "&8Bug Ranks"
 open_command:
-- 'branks'
+  - "branks"
 open_commands:
-- '[sound] ITEM_BOOK_PAGE_TURN 1'
+  - "[sound] ITEM_BOOK_PAGE_TURN 1"
 size: 27
 register_command: false
 items:
-  "Larva":
+  Larva:
+    display_name: "&a&l[Larva]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 1
     slot: 0
     hide_attributes: true
     lore:
-    - '&c&lRequirements: '
-    - ' '
-    - '&bMoney Required: %cmi_user_balance_formatted% / $1000.00'
-    - '&bHours Required: %cmi_user_playtime_hoursf% / 1'
-    - '&bVotes Required: %votingplugin_total_alltime% / 8'
-    - '&bExp Required:   %cmi_user_exp% / 2'
-    - ' '
-    display_name: '&a&l[Larva]'
-    click_requirement:
+    - ""
+    - "&c&lRewards:"
+    - ""
+    - "&7x&f1 &eRank &a&l[Larva]"
+    - " "
+    - "&c&lRequirements: "
+    - " "
+    - "&bMoney Required: %cmi_user_balance_formatted% / $1000.00"
+    - "&bHours Required: %cmi_user_playtime_hoursf% / 1"
+    - "&bVotes Required: %votingplugin_total_alltime% / 8"
+    - "&bExp Required:   %cmi_user_exp% / 2"
+    - " "
+    left_click_commands:
+    - "[console] cc give physical Spawner 1 %player_name%"
+    - "[console] give enderpearl 5 %player_name%"
+    - "[console] give shulkerbox 1 %player_name%"
+    - "[console] points give %player_name% 50"
+    - "[console] lp user %player_name% permission set smaa.rank.larva"
+    - "[message] &lCongratulations!"
+    # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Larva]"
+    - "[takemoney] 1"
+    - "[takeexp] 2L"
+    - "[console] lp user %player_name% permission set pw.limit.5"
+    - "[console] lp user %player_name% permission set cmi.command.sethome.5"
+    - "[console] lp user %player_name% permission set playershopguiplus.limit5"
+    left_click_requirement:
       requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: smaa.rank.larva
+          success_commands:
+          - "[sound] ENTITY_VILLAGER_NO"
+          - "[message]&c&lYou have already achieved this rank!"
+          - "[close]"
         voteCount:
-          type: 'integer equals'
-          input: '%votingplugin_total_alltime%'
-          output: '8'
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
           deny_commands:
-          - '[close]'
-          - '[message] &7&lNot enough votes.'
-          - '[sound] ENTITY_VILLAGER_NO'
-        rank:
-          type: 'has permission'
-          permission:
-          # - 'smaa.rank.Bugs'
-          - 'smaa.rank.Fairytale_Kingdoms'
-          - 'smaa.rank.Futuristic'
-          - 'smaa.rank.Galactic_Empire'
-          - 'smaa.rank.Main'
-          - 'smaa.rank.Pirate'
-          - 'smaa.rank.Space'
-          - 'smaa.rank.Time_Travel'
-          - 'smaa.rank.Wild_West'
-          - 'smaa.rank.Wizardry_Magic'
-          deny_commands:
-          - '[close]'
-          - '[message] &c&lYou are already in another track!'
-          - '[sound] ENTITY_VILLAGER_NO'
-        clickAgain:
-          type: 'has permission'
-          permission: 'smaa.rank.Larva'
-          deny_commands:
-          - '[close]'
-          - '[message] &c&lYou are already in another track!'
-          - '[sound] ENTITY_VILLAGER_NO'
+          - "[close]"
+          - "[message] &7&lNot enough votes."
+          - "[sound] ENTITY_VILLAGER_NO"
         hoursPlayed:
-          type: 'integer equals'
-          input: '%cmi_user_playtime_hoursf%'
-          output: '1'
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
           deny_commands:
-          - '[close]'
-          - '[message] &7&l Not enough play time.'
-          - '[sound] ENTITY_VILLAGER_NO'
+          - "[close]"
+          - "[message] &7&l Not enough play time."
+          - "[sound] ENTITY_VILLAGER_NO"
         xp:
           type: has exp
           amount: 2
           level: true
           deny_commands:
-          - '[close]'
-          - '[message] &7&lNot enough experience.'
-          - '[sound] ENTITY_VILLAGER_NO'
+          - "[close]"
+          - "[message] &7&lNot enough experience."
+          - "[sound] ENTITY_VILLAGER_NO"
         money:
           type: has money
           amount: 1000.0
           deny_commands:
-          - '[close]'
-          - '[message] &7&lNot enough money.'
-          - '[sound] ENTITY_VILLAGER_NO'
-    click_commands:
-    - '[takepermission] smaa.rank.Bugs'
-    - '[givepermission] smaa.rank.Larva'
-    - '[message] &lCongratulations!'
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Larva]'
-    - '[console] money take [playerName] 1000'
-    - '[console] exp [playerName] take 2 levels'
-    - '[console] lp user %player% permission set pw.limit.5'
-    - '[console] lp user %player% permission set cmi.command.sethome.5'
-    - '[console] lp user %player% permission set playershopguiplus.limit.5'
-
-  "Grub":
+          - "[close]"
+          - "[message] &7&lNot enough money."
+          - "[sound] ENTITY_VILLAGER_NO"
+  Grub:
+    display_name: "&a&l[Grub]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 2
     slot: 1
     hide_attributes: true
     lore:
-    - ''
-    - '&c&lRewards:'
-    - ''
-    - '&eRank Larva'
-    - '&e5 Leads'
-    - '&e1 Shulker box'
-    - '&e5 Ender Pearls'
-    - '&e1 Mob Spawn Egg (random)'
-    - '&e5 /home(s)'
-    - '&e5 /pwarp(s)'
-    - '&e5 /shop (slots)'
-    - '&e50 Points'
-    - ''
-    - '&c&lRequirements: '
-    - ''
-    - '&bMoney Required: %cmi_user_balance_formatted% / $1000.00'
-    - '&bHours Required: %cmi_user_playtime_hoursf% / 1'
-    - '&bVotes Required: %votingplugin_total_alltime% / 8'
-    - '&bExperience Required: %cmi_user_exp% / 2'
-    - ' '
-    display_name: '&a&l[Grub]'
-    click_requirement:
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Grub]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&1 &eSpawner Crate Key"
+      - "&7x&f5 &e/homes"
+      - "&7x&f5 &e/pwarps"
+      - "&7x&f5 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $2000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 9"
+      - "&bVotes Required: %votingplugin_total_alltime% / 16"
+      - "&bExp Required:   %cmi_user_exp% / 4"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.grub"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Grub]"
+      - "[takemoney] 2000"
+      - "[takeexp] 4L"
+      - "[console] lp user %player_name% permission set pw.limit.10"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.10"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.10"
+    left_click_requirement:
       requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: smaa.rank.grub
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
         voteCount:
-          type: 'integer equals'
-          input: '%votingplugin_total_alltime%'
-          output: '8'
-        deny_commands:
-        - '[message] Not enough Votes.'
-        rank:
-          type: '!has permission'
-          permission: 'smaa.rank.grub'
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
           deny_commands:
-          - '[message] &c&lYou have already achieved this Rank.'
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
         hoursPlayed:
-          type: 'integer equals'
-          input: '%cmi_user_playtime_hoursf%'
-          output: '1'
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
           deny_commands:
-          - '[message] Not enough Hours Played.'
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
         xp:
           type: has exp
           amount: 2
           level: true
           deny_commands:
-          - '[message] Not enough Experience.'
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
         money:
           type: has money
           amount: 1000.0
           deny_commands:
-          - '[message] Not enough Money.'
-    click_commands:
-    - '[message] &lCongratulations!'
-    - '[meta] set %player% rank Larva'
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Larva]'
-    - '[console] cmi money take [playerName] 5' # 1000
-    - '[console] cmi exp take 2'
-    - '[givepermission] smaa.rank.grub'
-
-  "Beetle":
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Beetle:
+    display_name: "&a&l[Beetle]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 3
     slot: 2
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $3000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 3'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 24'
-    - '&eExperience Required: %cmi_user_exp% / 6'
-    - ' '
-    display_name: '&a&l[Beetle]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Beetle]'
-
-  "Caterpillar":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Beetle]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&f1 &eSpawner Crate Key"
+      - "&7x&f10 &e/homes"
+      - "&7x&f10 &e/pwarps"
+      - "&7x&f10 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $3000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 17"
+      - "&bVotes Required: %votingplugin_total_alltime% / 24"
+      - "&bExp Required:   %cmi_user_exp% / 6"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.beetle"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Beetle]"
+      - "[takemoney] 3000"
+      - "[takeexp] 6L"
+      - "[console] lp user %player_name% permission set pw.limit.15"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.15"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.15"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.beetle"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Caterpillar:
+    display_name: "&a&l[Caterpillar]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 4
     slot: 3
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $4000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 4'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 32'
-    - '&eExperience Required: %cmi_user_exp% / 8'
-    - ' '
-    display_name: '&a&l[Caterpillar]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Caterpillar]'
-
-  "Firefly":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Caterpillar]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&f1 &eSpawner Crate Key"
+      - "&7x&f15 &e/homes"
+      - "&7x&f15 &e/pwarps"
+      - "&7x&f15 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $4000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 25"
+      - "&bVotes Required: %votingplugin_total_alltime% / 32"
+      - "&bExp Required:   %cmi_user_exp% / 8"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.caterpillar"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Caterpillar]"
+      - "[takemoney] 4000"
+      - "[takeexp] 8L"
+      - "[console] lp user %player_name% permission set pw.limit.20"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.20"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.20"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.caterpillar"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Firefly:
+    display_name: "&a&l[Firefly]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 5
     slot: 4
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $5000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 5'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 40'
-    - '&eExperience Required: %cmi_user_exp% / 10'
-    - ' '
-    display_name: '&a&l[Firefly]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Firefly]'
-
-  "Ant":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Firefly]"
+      - "&7x&f5 &eGolden Apple"
+      - "&7x&f5 &eShulker box"
+      - "&7x&f5 &eSpawner Crate Key"
+      - "&7x&f20 &e/homes"
+      - "&7x&f20 &e/pwarps"
+      - "&7x&f20 &e/pshop listings"
+      - "&7x&f250&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $5000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 33"
+      - "&bVotes Required: %votingplugin_total_alltime% / 40"
+      - "&bExp Required:   %cmi_user_exp% / 10"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name% 5"
+      - "[console] points give %player_name% 250"
+      - "[console] lp user %player_name% permission set smaa.rank.firefly"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Firefly]"
+      - "[takemoney] 5000"
+      - "[takeexp] 10L"
+      - "[console] lp user %player_name% permission set pw.limit.25"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.25"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.25"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.firefly"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Ant:
+    display_name: "&a&l[Ant]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 6
     slot: 5
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $6000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 6'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 48'
-    - '&eExperience Required: %cmi_user_exp% / 12'
-    - ' '
-    display_name: '&a&l[Ant]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Ant]'
-
-  "Ladybug":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Ant]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&f1 &eSpawner Crate Key"
+      - "&7x&f25 &e/homes"
+      - "&7x&f25 &e/pwarps"
+      - "&7x&f25 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $6000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 41"
+      - "&bVotes Required: %votingplugin_total_alltime% / 48"
+      - "&bExp Required:   %cmi_user_exp% / 12"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.ant"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Ant]"
+      - "[takemoney] 6000"
+      - "[takeexp] 12L"
+      - "[console] lp user %player_name% permission set pw.limit.30"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.30"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.30"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.ant"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Ladybug:
+    display_name: "&a&l[Ladybug]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 7
     slot: 6
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $7000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 7'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 56'
-    - '&eExperience Required: %cmi_user_exp% / 14'
-    - ' '
-    display_name: '&a&l[Ladybug]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Ladybug]'
-
-  "Cricket":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Ladybug]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&f1 &eSpawner Crate Key"
+      - "&7x&f30 &e/homes"
+      - "&7x&f30 &e/pwarps"
+      - "&7x&f30 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $7000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 49"
+      - "&bVotes Required: %votingplugin_total_alltime% / 56"
+      - "&bExp Required:   %cmi_user_exp% / 14"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.ladybug"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Ladybug]"
+      - "[takemoney] 7000"
+      - "[takeexp] 14L"
+      - "[console] lp user %player_name% permission set pw.limit.35"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.35"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.35"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.ladybug"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Cricket:
+    display_name: "&a&l[Cricket]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 8
     slot: 7
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $8000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 8'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 64'
-    - '&eExperience Required: %cmi_user_exp% / 16'
-    - ' '
-    display_name: '&a&l[Cricket]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Cricket]'
-
-  "Dragonfly":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Cricket]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&f1 &eSpawner Crate Key"
+      - "&7x&f35 &e/homes"
+      - "&7x&f35 &e/pwarps"
+      - "&7x&f35 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $8000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 57"
+      - "&bVotes Required: %votingplugin_total_alltime% / 64"
+      - "&bExp Required:   %cmi_user_exp% / 16"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.cricket"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Cricket]"
+      - "[takemoney] 8000"
+      - "[takeexp] 16L"
+      - "[console] lp user %player_name% permission set pw.limit.40"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.40"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.40"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.cricket"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Dragonfly:
+    display_name: "&a&l[Dragonfly]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 9
     slot: 8
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $9000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 9'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 72'
-    - '&eExperience Required: %cmi_user_exp% / 18'
-    - ' '
-    display_name: '&a&l[Dragonfly]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Dragonfly]'
-
-  "Moth":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Dragonfly]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&f1 &eSpawner Crate Key"
+      - "&7x&f40 &e/homes"
+      - "&7x&f40 &e/pwarps"
+      - "&7x&f40 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $9000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 65"
+      - "&bVotes Required: %votingplugin_total_alltime% / 72"
+      - "&bExp Required:   %cmi_user_exp% / 18"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.dragonfly"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Dragonfly]"
+      - "[takemoney] 9000"
+      - "[takeexp] 18L"
+      - "[console] lp user %player_name% permission set pw.limit.45"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.45"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.45"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.dragonfly"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Moth:
+    display_name: "&a&l[Moth]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 10
     slot: 9
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $10000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 100'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 80'
-    - '&eExperience Required: %cmi_user_exp% / 20'
-    - ' '
-    display_name: '&a&l[Moth]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Moth]'
-
-  "Grasshopper":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Moth]"
+      - "&7x&f5 &eGolden Apple"
+      - "&7x&f5 &eShulker box"
+      - "&7x&f5 &eSpawner Crate Key"
+      - "&7x&f45 &e/homes"
+      - "&7x&f45 &e/pwarps"
+      - "&7x&f45 &e/pshop listings"
+      - "&7x&f250&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $10000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 73"
+      - "&bVotes Required: %votingplugin_total_alltime% / 80"
+      - "&bExp Required:   %cmi_user_exp% / 20"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give goldenapple 5 %player_name%"
+      - "[console] give shulkerbox 5 %player_name%"
+      - "[console] points give %player_name% 250"
+      - "[console] lp user %player_name% permission set smaa.rank.moth"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Moth]"
+      - "[takemoney] 10000"
+      - "[takeexp] 20L"
+      - "[console] lp user %player_name% permission set pw.limit.50"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.50"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.50"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.moth"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Grasshopper:
+    display_name: "&a&l[Grasshopper]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 11
     slot: 10
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $11000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 110'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 88'
-    - '&eExperience Required: %cmi_user_exp% / 22'
-    - ' '
-    display_name: '&a&l[Grasshopper]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Grasshopper]'
-  "Bee":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Grasshopper]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&f1 &eSpawner Crate Key"
+      - "&7x&f50 &e/homes"
+      - "&7x&f50 &e/pwarps"
+      - "&7x&f50 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $11000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 81"
+      - "&bVotes Required: %votingplugin_total_alltime% / 88"
+      - "&bExp Required:   %cmi_user_exp% / 22"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.grasshopper"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Grasshopper]"
+      - "[takemoney] 11000"
+      - "[takeexp] 22L"
+      - "[console] lp user %player_name% permission set pw.limit.55"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.55"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.55"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.grasshopper"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Bee:
+    display_name: "&a&l[Bee]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 12
     slot: 11
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $12000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 120'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 96'
-    - '&eExperience Required: %cmi_user_exp% / 24'
-    - ' '
-    display_name: '&a&l[Bee]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Bee]'
-  "Butterfly":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Bee]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&f1 &eSpawner Crate Key"
+      - "&7x&f55 &e/homes"
+      - "&7x&f55 &e/pwarps"
+      - "&7x&f55 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $12000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 89"
+      - "&bVotes Required: %votingplugin_total_alltime% / 96"
+      - "&bExp Required:   %cmi_user_exp% / 24"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.bee"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Bee]"
+      - "[takemoney] 12000"
+      - "[takeexp] 24L"
+      - "[console] lp user %player_name% permission set pw.limit.60"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.60"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.60"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.bee"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Butterfly:
+    display_name: "&a&l[Butterfly]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 13
     slot: 12
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $13000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 130'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 104'
-    - '&eExperience Required: %cmi_user_exp% / 26'
-    - ' '
-    display_name: '&a&l[Butterfly]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Butterfly]'
-  "Spider":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Butterfly]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&f1 &eSpawner Crate Key"
+      - "&7x&f60 &e/homes"
+      - "&7x&f60 &e/pwarps"
+      - "&7x&f60 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $13000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 97"
+      - "&bVotes Required: %votingplugin_total_alltime% / 104"
+      - "&bExp Required:   %cmi_user_exp% / 26"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.butterfly"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Butterfly]"
+      - "[takemoney] 13000"
+      - "[takeexp] 26L"
+      - "[console] lp user %player_name% permission set pw.limit.65"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.65"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.65"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.butterfly"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Spider:
+    display_name: "&a&l[Spider]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 14
     slot: 13
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $14000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 140'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 112'
-    - '&eExperience Required: %cmi_user_exp% / 28'
-    - ' '
-    display_name: '&a&l[Spider]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Spider]'
-  "Centipede":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Spider]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&f1 &eSpawner Crate Key"
+      - "&7x&f65 &e/homes"
+      - "&7x&f65 &e/pwarps"
+      - "&7x&f65 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $14000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 105"
+      - "&bVotes Required: %votingplugin_total_alltime% / 112"
+      - "&bExp Required:   %cmi_user_exp% / 28"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.spider"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Spider]"
+      - "[takemoney] 14000"
+      - "[takeexp] 28L"
+      - "[console] lp user %player_name% permission set pw.limit.70"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.70"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.70"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.spider"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Centipede:
+    display_name: "&a&l[Centipede]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 15
     slot: 14
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $15000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 150'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 120'
-    - '&eExperience Required: %cmi_user_exp% / 30'
-    - ' '
-    display_name: '&a&l[Centipede]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Centipede]'
-  "Scorpion":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Centipede]"
+      - "&7x&f5 &eGolden Apple"
+      - "&7x&f5 &eShulker box"
+      - "&7x&f5 &eSpawner Crate Key"
+      - "&7x&f70 &e/homes"
+      - "&7x&f70 &e/pwarps"
+      - "&7x&f70 &e/pshop listings"
+      - "&7x&f250&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $15000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 113"
+      - "&bVotes Required: %votingplugin_total_alltime% / 120"
+      - "&bExp Required:   %cmi_user_exp% / 30"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 5 %player_name%"
+      - "[console] give goldenapple 5 %player_name%"
+      - "[console] give shulkerbox 5 %player_name%"
+      - "[console] points give %player_name% 250"
+      - "[console] lp user %player_name% permission set smaa.rank.centipede"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Centipede]"
+      - "[takemoney] 15000"
+      - "[takeexp] 30L"
+      - "[console] lp user %player_name% permission set pw.limit.75"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.75"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.75"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.centipede"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Scorpion:
+    display_name: "&a&l[Scorpion]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 16
     slot: 15
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $16000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 160'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 128'
-    - '&eExperience Required: %cmi_user_exp% / 32'
-    - ' '
-    display_name: '&a&l[Scorpion]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Scorpion]'
-  "PrayingMantis":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Scorpion]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&f1 &eSpawner Crate Key"
+      - "&7x&f75 &e/homes"
+      - "&7x&f75 &e/pwarps"
+      - "&7x&f75 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $16000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 121"
+      - "&bVotes Required: %votingplugin_total_alltime% / 128"
+      - "&bExp Required:   %cmi_user_exp% / 32"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.scorpion"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Scorpion]"
+      - "[takemoney] 16000"
+      - "[takeexp] 32L"
+      - "[console] lp user %player_name% permission set pw.limit.80"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.80"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.80"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.scorpion"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Praying Mantis:
+    display_name: "&a&l[Praying Mantis]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 17
     slot: 16
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $17000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 170'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 136'
-    - '&eExperience Required: %cmi_user_exp% / 34'
-    - ' '
-    display_name: '&a&l[Praying Mantis]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[PrayingMantis]'
-  "Tarantula":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Praying_Mantis]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&f1 &eSpawner Crate Key"
+      - "&7x&f80 &e/homes"
+      - "&7x&f80 &e/pwarps"
+      - "&7x&f80 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $17000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 129"
+      - "&bVotes Required: %votingplugin_total_alltime% / 136"
+      - "&bExp Required:   %cmi_user_exp% / 34"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.praying_mantis"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Praying Mantis]"
+      - "[takemoney] 17000"
+      - "[takeexp] 34L"
+      - "[console] lp user %player_name% permission set pw.limit.85"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.85"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.85"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.Prayinpraying_mantis"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Tarantula:
+    display_name: "&a&l[Tarantula]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 18
     slot: 17
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $18000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 180'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 144'
-    - '&eExperience Required: %cmi_user_exp% / 36'
-    - ' '
-    display_name: '&a&l[Tarantula]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Tarantula]'
-  "Hornet":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Tarantula]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&f1 &eSpawner Crate Key"
+      - "&7x&f85 &e/homes"
+      - "&7x&f85 &e/pwarps"
+      - "&7x&f85 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $18000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 137"
+      - "&bVotes Required: %votingplugin_total_alltime% / 144"
+      - "&bExp Required:   %cmi_user_exp% / 36"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.tarantula"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Tarantula]"
+      - "[takemoney] 18000"
+      - "[takeexp] 36L"
+      - "[console] lp user %player_name% permission set pw.limit.90"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.90"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.90"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.tarantula"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Hornet:
+    display_name: "&a&l[Hornet]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 19
     slot: 18
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $19000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 190'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 152'
-    - '&eExperience Required: %cmi_user_exp% / 38'
-    - ' '
-    display_name: '&a&l[Hornet]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Hornet]'
-  "AssassinBug":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Hornet]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&f1 &eSpawner Crate Key"
+      - "&7x&f90 &e/homes"
+      - "&7x&f90 &e/pwarps"
+      - "&7x&f90 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $19000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 145"
+      - "&bVotes Required: %votingplugin_total_alltime% / 152"
+      - "&bExp Required:   %cmi_user_exp% / 38"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.hornet"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Hornet]"
+      - "[takemoney] 19000"
+      - "[takeexp] 38L"
+      - "[console] lp user %player_name% permission set pw.limit.95"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.95"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.95"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.hornet"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Assassin Bug:
+    display_name: "&a&l[Assassin Bug]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 20
     slot: 19
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $20000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 200'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 160'
-    - '&eExperience Required: %cmi_user_exp% / 40'
-    - ' '
-    display_name: '&a&l[Assassin Bug]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[AssassinBug]'
-  "StickInsect":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Assassin bug]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f5 &eShulker box"
+      - "&7x&f5 &eSpawner Crate Key"
+      - "&7x&f95 &e/homes"
+      - "&7x&f95 &e/pwarps"
+      - "&7x&f95 &e/pshop listings"
+      - "&7x&f250&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $20000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 153"
+      - "&bVotes Required: %votingplugin_total_alltime% / 160"
+      - "&bExp Required:   %cmi_user_exp% / 40"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 5 %player_name%"
+      - "[console] give goldenapple 5 %player_name%"
+      - "[console] give shulkerbox 5 %player_name%"
+      - "[console] points give %player_name% 250"
+      - "[console] lp user %player_name% permission set smaa.rank.assassin bug"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Assassin Bug]"
+      - "[takemoney] 20000"
+      - "[takeexp] 40L"
+      - "[console] lp user %player_name% permission set pw.limit.100"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.100"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.100"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.Assassiassassin bug"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Stick Insect:
+    display_name: "&a&l[Stick Insect]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 21
     slot: 20
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $21000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 210'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 168'
-    - '&eExperience Required: %cmi_user_exp% / 42'
-    - ' '
-    display_name: '&a&l[Stick Insect]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[StickInsect]'
-  "Katydid":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Stick_Insect]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&f11 &eSpawner Crate Key"
+      - "&7x&f100 &e/homes"
+      - "&7x&f100 &e/pwarps"
+      - "&7x&f100 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $21000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 161"
+      - "&bVotes Required: %votingplugin_total_alltime% / 168"
+      - "&bExp Required:   %cmi_user_exp% / 42"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.stick_insect"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Stick Insect]"
+      - "[takemoney] 21000"
+      - "[takeexp] 42L"
+      - "[console] lp user %player_name% permission set pw.limit.105"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.105"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.105"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.Sticstick_insect"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Katydid:
+    display_name: "&a&l[Katydid]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 22
     slot: 21
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $22000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 220'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 176'
-    - '&eExperience Required: %cmi_user_exp% / 44'
-    - ' '
-    display_name: '&a&l[Katydid]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Katydid]'
-  "Flea":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Katydid]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&f11 &eSpawner Crate Key"
+      - "&7x&f105 &e/homes"
+      - "&7x&f105 &e/pwarps"
+      - "&7x&f105 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $22000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 169"
+      - "&bVotes Required: %votingplugin_total_alltime% / 176"
+      - "&bExp Required:   %cmi_user_exp% / 44"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.katydid"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Katydid]"
+      - "[takemoney] 22000"
+      - "[takeexp] 44L"
+      - "[console] lp user %player_name% permission set pw.limit.110"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.110"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.110"
+    eft_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.katydid"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Flea:
+    display_name: "&a&l[Flea]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 23
     slot: 22
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $23000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 230'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 184'
-    - '&eExperience Required: %cmi_user_exp% / 46'
-    - ' '
-    display_name: '&a&l[Flea]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Flea]'
-  "StinkBug":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Flea]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&f11 &eSpawner Crate Key"
+      - "&7x&f110 &e/homes"
+      - "&7x&f110 &e/pwarps"
+      - "&7x&f110 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $23000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 177"
+      - "&bVotes Required: %votingplugin_total_alltime% / 184"
+      - "&bExp Required:   %cmi_user_exp% / 46"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.flea"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[Flea]"
+      - "[takemoney] 23000"
+      - "[takeexp] 46L"
+      - "[console] lp user %player_name% permission set pw.limit.115"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.115"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.115"
+    left_click_requirement:
+    requirements:
+      no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+        type: has permission
+        permission: "smaa.rank.flea"
+        success_commands:
+          - "[sound] ENTITY_VILLAGER_NO"
+          - "[message]&c&lYou have already achieved this rank!"
+          - "[close]"
+      voteCount:
+        type: "integer equals"
+        input: "%votingplugin_total_alltime%"
+        output: "8"
+        deny_commands:
+          - "[close]"
+          - "[message] &7&lNot enough votes."
+          - "[sound] ENTITY_VILLAGER_NO"
+      hoursPlayed:
+        type: "integer equals"
+        input: "%cmi_user_playtime_hoursf%"
+        output: "1"
+        deny_commands:
+          - "[close]"
+          - "[message] &7&l Not enough play time."
+          - "[sound] ENTITY_VILLAGER_NO"
+      xp:
+        type: has exp
+        amount: 2
+        level: true
+        deny_commands:
+          - "[close]"
+          - "[message] &7&lNot enough experience."
+          - "[sound] ENTITY_VILLAGER_NO"
+      money:
+        type: has money
+        amount: 1000.0
+        deny_commands:
+          - "[close]"
+          - "[message] &7&lNot enough money."
+          - "[sound] ENTITY_VILLAGER_NO"
+  Stink Bug:
+    display_name: "&a&l[Stink Bug]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 24
     slot: 23
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $24000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 240'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 192'
-    - '&eExperience Required: %cmi_user_exp% / 48'
-    - ' '
-    display_name: '&a&l[Stink Bug]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[StinkBug]'
-  "QueenBee":
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Stinkbug]"
+      - "&7x&f5 &eEnder Pearls"
+      - "&7x&f1 &eShulker box"
+      - "&7x&f11 &eSpawner Crate Key"
+      - "&7x&f115 &e/homes"
+      - "&7x&f115 &e/pwarps"
+      - "&7x&f115 &e/pshop listings"
+      - "&7x&f50&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $24000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 185"
+      - "&bVotes Required: %votingplugin_total_alltime% / 192"
+      - "&bExp Required:   %cmi_user_exp% / 48"
+      - " "
+    left_click_commands:
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 5 %player_name%"
+      - "[console] give SHULKER_BOX 1 %player_name%"
+      - "[console] points give %player_name% 50"
+      - "[console] lp user %player_name% permission set smaa.rank.stinkbug"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[StinkBug]"
+      - "[takemoney] 24000"
+      - "[takeexp] 48L"
+      - "[console] lp user %player_name% permission set pw.limit.120"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.120"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.120"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.stinkbug"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+  Queen Bee/King Bee:
+    display_name: "&a&l[Queen Bee/King Bee]"
     update_interval: 1
-    material: 'HONEYCOMB'
+    material: "HONEYCOMB"
     amount: 25
     slot: 24
     hide_attributes: true
     lore:
-    - ' '
-    - '&eMoney Required: %cmi_user_balance_formated% / $25000'
-    - '&eHours Required: %cmi_user_playtime_hoursf% / 250'
-    - '&eVotes Required: %votingplugin_alltimetotal% / 200'
-    - '&eExperience Required: %cmi_user_exp% / 50'
-    - ' '
-    display_name: '&a&l[Queen Bee]'
-    click_commands:
-    - '[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[QueenBee]'
-    # - '[givepermission]] '
-  # - '[takemoney] $5'
-
-  "Back":
-    update_interval: 1
-    material: OAK_DOOR
-    slot: 25
-    hide_attributes: true
-    display_name: "&eBack"
-    lore:
-    - '&8Return to main menu'
+      - ""
+      - "&c&lRewards:"
+      - ""
+      - "&7x&f1 &eRank &a&l[Queen_bee/King_bee]"
+      - "&7x&f12 &eEnder Pearls"
+      - "&7x&f12 &eShulker box"
+      - "&7x&f12 &eSpawner Crate Key"
+      - "&7x&f120 &e/homes"
+      - "&7x&f120 &e/pwarps"
+      - "&7x&f120 &e/pshop listings"
+      - "&7x&f1000&e Points"
+      - ""
+      - "&c&lRequirements: "
+      - " "
+      - "&bMoney Required: %cmi_user_balance_formatted% / $25000.00"
+      - "&bHours Required: %cmi_user_playtime_hoursf% / 193"
+      - "&bVotes Required: %votingplugin_total_alltime% / 200"
+      - "&bExp Required:   %cmi_user_exp% / 50"
+      - " "
     left_click_commands:
-    - '[player] rank'
+      - "[console] cc give physical Spawner 1 %player_name%"
+      - "[console] give ENDER_PEARL 12 %player_name%"
+      - "[console] give SHULKER_BOX 12 %player_name%"
+      - "[console] points give %player_name% 1000"
+      - "[console] lp user %player_name% permission set smaa.rank.queen_bee/king_bee"
+      - "[message] &lCongratulations!"
+      # - "[broadcast] &f&l%cmi_user_nickname% &r&6has achieved the rank &a&l[QueenBee/KingBee]"
+      - "[takemoney] 25000"
+      - "[takeexp] 50L"
+      - "[console] lp user %player_name% permission set pw.limit.125"
+      - "[console] lp user %player_name% permission set cmi.command.sethome.125"
+      - "[console] lp user %player_name% permission set playershopguiplus.limit.125"
+    left_click_requirement:
+      requirements:
+        no_rank: # This requirement will check if they have the rank, and if they do, it won't allow them to purchase the rank
+          type: has permission
+          permission: "smaa.rank.queen_bee/king_bee"
+          success_commands:
+            - "[sound] ENTITY_VILLAGER_NO"
+            - "[message]&c&lYou have already achieved this rank!"
+            - "[close]"
+        voteCount:
+          type: "integer equals"
+          input: "%votingplugin_total_alltime%"
+          output: "8"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough votes."
+            - "[sound] ENTITY_VILLAGER_NO"
+        hoursPlayed:
+          type: "integer equals"
+          input: "%cmi_user_playtime_hoursf%"
+          output: "1"
+          deny_commands:
+            - "[close]"
+            - "[message] &7&l Not enough play time."
+            - "[sound] ENTITY_VILLAGER_NO"
+        xp:
+          type: has exp
+          amount: 2
+          level: true
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough experience."
+            - "[sound] ENTITY_VILLAGER_NO"
+        money:
+          type: has money
+          amount: 1000.0
+          deny_commands:
+            - "[close]"
+            - "[message] &7&lNot enough money."
+            - "[sound] ENTITY_VILLAGER_NO"
+    Back:
+      update_interval: 1
+      material: OAK_DOOR
+      slot: 25
+      hide_attributes: true
+      display_name: "&eBack"
+      lore:
+        - "&8Return to main menu"
+      left_click_commands:
+        - "[player] rank"
 
-  "Close":
-    update_interval: 1
-    material: BARRIER
-    slot: 26
-    hide_attributes: true
-    lore:
-    - '&8Click to close'
-    display_name: '&cClose'
-    left_click_commands:
-    - '[close]'
+    Close:
+      update_interval: 1
+      material: BARRIER
+      slot: 26
+      hide_attributes: true
+      lore:
+        - "&8Click to close"
+      display_name: "&cClose"
+      left_click_commands:
+        - "[close]"
